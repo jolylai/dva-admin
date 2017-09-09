@@ -28,8 +28,8 @@ const Login = ({
   };
 
   return (
-    <div className={styles.form}>
-      <Form>
+    <div className={styles.background}>
+      <Form className={styles.form}>
         <FormItem>
           <img className={styles.logo} src={logo} alt="logo" />
           <span>{config.name}</span>

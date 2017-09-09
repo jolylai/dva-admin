@@ -12,8 +12,9 @@ const data = Mock.mock({
 });
 
 export default {
-  [`POST ${apiPrefix}/user/login`](req, res) {
+  [`GET ${apiPrefix}/user/login`](req, res) {
     console.log('req', req.body);
-    res.json(data);
+    res.status(200);
+    res.json({ message: 'ok' });
   },
 };
