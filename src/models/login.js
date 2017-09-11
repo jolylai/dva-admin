@@ -1,3 +1,4 @@
+import { routerRedux } from 'dva/router';
 import { login } from '../services/login';
 
 export default {
@@ -5,21 +6,12 @@ export default {
   state: {},
   reducers: {},
   effects: {
-    *query({ payload }, { call }) {
-      console.log('payload', payload);
+    *query({ payload }, { call, put }) {
       const data = yield call(login, payload);
-      console.log('data', data);
+      if (data.success) {
+        yield put(routerRedux.push('/dashboard'));
+      }
     },
   },
-  subscriptions: {
-    // setup({ dispatch, history }) {
-    //   history.listen((location) => {
-    //     if (location.path === 'login') {
-    //       dispatch({
-    //         type: 'query',
-    //       });
-    //     }
-    //   });
-    // },
-  },
+  subscriptions: {},
 };

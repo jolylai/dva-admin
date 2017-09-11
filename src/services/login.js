@@ -6,7 +6,7 @@ const { userLogin } = config.api;
 export async function login(data) {
   return request({
     url: userLogin,
-    method: 'get',
+    method: 'post',
     params: data,
   });
 }

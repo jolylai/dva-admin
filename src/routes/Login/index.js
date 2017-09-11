@@ -29,6 +29,8 @@ const Login = ({
 
   return (
     <div className={styles.background}>
+    login
+    login
       <Form className={styles.form}>
         <FormItem>
           <img className={styles.logo} src={logo} alt="logo" />
@@ -38,6 +40,7 @@ const Login = ({
           {
             getFieldDecorator('username', {
               rules: [{ required: true, message: 'please input username' }],
+              initialValue: 'jolylai',
             })(<Input placeholder="Username" />)
           }
         </FormItem>
@@ -45,7 +48,8 @@ const Login = ({
           {
             getFieldDecorator('password', {
               rules: [{ required: true, message: 'please input password' }],
-            })(<Input placeholder="Password" />)
+              initialValue: '123456',
+            })(<Input placeholder="Password" type="password" />)
           }
         </FormItem>
         <FormItem>
