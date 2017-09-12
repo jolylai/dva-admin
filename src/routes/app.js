@@ -1,20 +1,41 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'dva';
-import { Layout, Menu, Icon, Dropdown } from 'antd';
-// import config from '../utils/config';
+import { Link } from 'dva/router';
+import { Layout, Menu, Icon } from 'antd';
 import styles from './app.less';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Sider } = Layout;
 const MenuItem = Menu.Item;
+const SubMenu = Menu.SubMenu;
 
 class App extends Component {
   state = {
-    collapsed: false,
+    collapsed: true,
   }
 
   oncollapse = (collapsed) => {
-    console.log('collapsed', collapsed);
+    // console.log('collapsed', collapsed);
     this.setState({ collapsed });
+  }
+
+  onSelect = ({ item, key, selectedKeys }) => {
+    console.log('item', item);
+    console.log('key', key);
+    console.log('selectedKeys', selectedKeys);
+    switch (key) {
+      case '3':
+        
+        break;
+    
+      default:
+        break;
+    }
+  }
+
+  clickItem = ({ item, key, keyPath }) => {
+    console.log('item', item);
+    console.log('key', key);
+    console.log('keyPath', keyPath);
   }
 
   render() {
@@ -24,17 +45,18 @@ class App extends Component {
 
     const siderProps = {
       collapsible: true,
+      defaultCollapsed: true,
       collapsed,
       onCollapse: this.oncollapse,
     };
 
-    const menu = (
-      <Menu>
-        <MenuItem key="1">
-          Logout
-        </MenuItem>
-      </Menu>
-    );
+    const menuProps = {
+      mode: 'inline',
+      theme: 'dark',
+      defaultSelectedKeys: ['1'],
+      onSelect: this.onSelect,
+      // onClick: this.clickItem,
+    };
 
     if (pathname === '/login') {
       return (
@@ -44,30 +66,36 @@ class App extends Component {
       );
     }
     return (
-      <Layout>
+      <Layout style={{ minHeight: '100vh' }}>
         <Sider {...siderProps}>
           <div className={styles.logo} />
-          <Menu defaultSelectedKeys={['1']}>
+          <Menu {...menuProps}>
             <MenuItem key="1">
-              dashboard
+              <Icon type="flag" />
+              <span>Dashboard</span>
             </MenuItem>
             <MenuItem key="2">
-              Item2
+              <Icon type="pushpin-o" />
+              <span>Item</span>
             </MenuItem>
+            <SubMenu
+              key="setting"
+              title={<span><Icon type="setting" /><span>Setting</span></span>}
+            >
+              <MenuItem key="3">
+                <Link to="/login">
+                  <Icon type="user" />
+                  <span>Logout</span>
+                </Link>
+              </MenuItem>
+            </SubMenu>
           </Menu>
+          <div className={styles.copyRight}>
+            ©2017 Created by Jolylai
+          </div>
         </Sider>
         <Layout>
-          <Header className={styles.header}>
-            <div className={styles.setting}>
-              <Dropdown overlay={menu}>
-                <span>setting</span>
-              </Dropdown>
-            </div>
-          </Header>
-          <Content className={styles.content}>Content</Content>
-          <Footer className={styles.footer}>
-            dva admin ©2017 Created by Jolylai
-          </Footer>
+          { this.props.children }
         </Layout>
       </Layout>
     );

@@ -37,6 +37,14 @@ const Routers = function ({ history, app }) {
               cb(null, require('./routes/login/'));
             }, 'login');
           },
+        }, {
+          path: '/weather',
+          getComponent(nextState, cb) {
+            require.ensure([], (require) => {
+              registerModel(app, require('./models/weather'));
+              cb(null, require('./routes/weather/'));
+            }, 'wheather');
+          },
         },
       ],
     },
