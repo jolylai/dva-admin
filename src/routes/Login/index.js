@@ -9,6 +9,7 @@ import styles from './index.less';
 const FormItem = Form.Item;
 
 const Login = ({
+  loading,
   dispatch,
   form: {
     getFieldDecorator,
@@ -57,7 +58,7 @@ const Login = ({
             getFieldDecorator('rememberMe')(<Checkbox>Remember me</Checkbox>)
           }
           <a className={styles.forgot} href="">Forgot password</a>
-          <Button className={styles.loginBtn} type="primary" htmlType="submit" onClick={handleLogin}>Login</Button>
+          <Button className={styles.loginBtn} type="primary" htmlType="submit" loading={loading.effects['login/query']} onClick={handleLogin}>Login</Button>
           or <a href="">Register now</a>
         </FormItem>
       </Form>
@@ -70,4 +71,4 @@ Login.propTypes = {
   dispatch: PropTypes.func,
 };
 
-export default connect(({ login }) => ({ login }))(Form.create()(Login));
+export default connect(({ login, loading }) => ({ login, loading }))(Form.create()(Login));
