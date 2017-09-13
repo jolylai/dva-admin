@@ -30,8 +30,6 @@ const Login = ({
 
   return (
     <div className={styles.background}>
-    login
-    login
       <Form className={styles.form}>
         <FormItem>
           <img className={styles.logo} src={logo} alt="logo" />

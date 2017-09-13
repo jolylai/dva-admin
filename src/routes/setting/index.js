@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Layout, Menu, Input, Radio,Select } from 'antd';
+import { Form, Layout, Menu, Input, Radio, Select } from 'antd';
 
 import styles from './index.less';
 
@@ -28,7 +28,7 @@ class Setting extends Component {
         <Select.Option value="86">+86</Select.Option>
         <Select.Option value="87">+87</Select.Option>
       </Select>
-    );
+      );
 
     return (
       <Layout>
@@ -37,11 +37,14 @@ class Setting extends Component {
             <MenuItem>
               个人资料
             </MenuItem>
+            <MenuItem>
+              安全设置
+            </MenuItem>
           </Menu>
         </Sider>
         <Content className={styles.content}>
           <Form>
-            <FormItem label="avatar">
+            <FormItem {...formItemLayout} label="avatar">
               <span>avatar</span>
             </FormItem>
             <FormItem {...formItemLayout} label="Phone Number">
@@ -67,7 +70,7 @@ class Setting extends Component {
                     <Radio value={0}>Male</Radio>
                     <Radio valu={1}>Female</Radio>
                   </RadioGroup>
-                )
+                  )
               }
             </FormItem>
           </Form>
