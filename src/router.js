@@ -47,6 +47,14 @@ const Routers = function ({ history, app }) {
             }, 'wheather');
           },
         }, {
+          path: '/music',
+          getComponent(nextState, cb) {
+            require.ensure([], (require) => {
+              // registerModel(app, require('./models/weather'));
+              cb(null, require('./routes/music/'));
+            }, 'music');
+          },
+        }, {
           path: '/setting',
           getComponent(nextState, cb) {
             require.ensure([], (require) => {

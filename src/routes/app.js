@@ -5,7 +5,7 @@ import { Layout, Menu, Icon, Dropdown } from 'antd';
 import config from '../utils/config';
 import styles from './app.less';
 
-const { Sider, Header, Content } = Layout;
+const { Sider, Header, Content, Footer } = Layout;
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 
@@ -23,14 +23,6 @@ class App extends Component {
     console.log('item', item);
     console.log('key', key);
     console.log('selectedKeys', selectedKeys);
-    switch (key) {
-      case '3':
-        
-        break;
-    
-      default:
-        break;
-    }
   }
 
   clickItem = ({ item, key, keyPath }) => {
@@ -102,7 +94,7 @@ class App extends Component {
             </MenuItem>
           </Menu>
         </Header>
-        <Layout style={{ height: '100%' }}>
+        <Layout style={{ height: '93vh' }}>
           <Sider {...siderProps}>
             <Menu {...menuProps}>
               <MenuItem key="1">
@@ -110,8 +102,10 @@ class App extends Component {
                 <span>Home</span>
               </MenuItem>
               <MenuItem key="2">
-                <Icon type="pushpin-o" />
-                <span>Item</span>
+                <Link to="/music">
+                  <Icon type="pushpin-o" />
+                  <span>Music</span>
+                </Link>
               </MenuItem>
               <SubMenu
                 key="setting"
@@ -125,14 +119,12 @@ class App extends Component {
                 </MenuItem>
               </SubMenu>
             </Menu>
-            <div className={styles.copyRight}>
-              ©2017 Created by Jolylai
-            </div>
           </Sider>
           <Layout>
             <Content className={styles.content}>
               { this.props.children }
             </Content>
+            {/* <Footer>©2017 Created by Jolylai</Footer>*/}
           </Layout>
         </Layout>
       </Layout>
