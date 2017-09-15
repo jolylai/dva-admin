@@ -50,9 +50,15 @@ const Routers = function ({ history, app }) {
           path: '/music',
           getComponent(nextState, cb) {
             require.ensure([], (require) => {
-              // registerModel(app, require('./models/weather'));
               cb(null, require('./routes/music/'));
             }, 'music');
+          },
+        }, {
+          path: '/demo/drag',
+          getComponent(nextState, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('./routes/demo/drag'));
+            }, 'demo-drag');
           },
         }, {
           path: '/setting',

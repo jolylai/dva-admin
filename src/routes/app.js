@@ -108,13 +108,17 @@ class App extends Component {
                 </Link>
               </MenuItem>
               <SubMenu
-                key="setting"
-                title={<span><Icon type="setting" /><span>Setting</span></span>}
+                key="demo"
+                title={<span><Icon type="flag" /><span>Demo</span></span>}
               >
-                <MenuItem key="3">
-                  <Link to="/login">
-                    <Icon type="user" />
-                    <span>Logout</span>
+                <MenuItem key="demo-darrage">
+                  <Link to="/demo/darrage">
+                    <span>弹幕</span>
+                  </Link>
+                </MenuItem>
+                <MenuItem key="demo-drag">
+                  <Link to="/demo/drag">
+                    拖拽
                   </Link>
                 </MenuItem>
               </SubMenu>
