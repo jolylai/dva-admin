@@ -57,8 +57,29 @@ const Routers = function ({ history, app }) {
           path: '/demo/drag',
           getComponent(nextState, cb) {
             require.ensure([], (require) => {
-              cb(null, require('./routes/demo/drag'));
+              cb(null, require('./routes/demo/drag/'));
             }, 'demo-drag');
+          },
+        }, {
+          path: '/demo/gradient',
+          getComponent(nextState, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('./routes/demo/gradient/'));
+            }, 'demo-gradient');
+          },
+        }, {
+          path: '/demo/d3',
+          getComponent(nextState, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('./routes/demo/d3/'));
+            }, 'demo-d3');
+          },
+        }, {
+          path: '/js30/handwritingBoard',
+          getComponent(nextState, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('./routes/javascript30/handwritingBoard/'));
+            }, 'js30-handwritingBoard');
           },
         }, {
           path: '/setting',

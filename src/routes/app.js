@@ -98,8 +98,10 @@ class App extends Component {
           <Sider {...siderProps}>
             <Menu {...menuProps}>
               <MenuItem key="1">
-                <Icon type="home" />
-                <span>Home</span>
+                <Link to="/dashboard">
+                  <Icon type="home" />
+                  <span>Dashboard</span>
+                </Link>
               </MenuItem>
               <MenuItem key="2">
                 <Link to="/music">
@@ -119,6 +121,26 @@ class App extends Component {
                 <MenuItem key="demo-drag">
                   <Link to="/demo/drag">
                     拖拽
+                  </Link>
+                </MenuItem>
+                <MenuItem key="demo-gradient">
+                  <Link to="/demo/gradient">
+                    渐变
+                  </Link>
+                </MenuItem>
+                <MenuItem key="demo-d3">
+                  <Link to="/demo/d3">
+                    d3
+                  </Link>
+                </MenuItem>
+              </SubMenu>
+              <SubMenu
+                key="js30"
+                title={<span><Icon type="code" /><span>js30</span></span>}
+              >
+                <MenuItem key="js30-handwirtingBoard">
+                  <Link to="/js30/handwritingBoard">
+                    手写板
                   </Link>
                 </MenuItem>
               </SubMenu>
