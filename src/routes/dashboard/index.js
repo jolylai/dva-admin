@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import Clock from './components/cssClock';
+// import Clock from './components/cssClock';
 
 class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Clock />
+        purse
       </div>
     );
   }

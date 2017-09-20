@@ -144,6 +144,16 @@ class App extends Component {
                   </Link>
                 </MenuItem>
               </SubMenu>
+              <SubMenu
+                key="css"
+                title={<span><Icon type="tag" /><span>CSS</span></span>}
+              >
+                <MenuItem>
+                  <Link to="/css/animation">
+                    CSS 动画
+                  </Link>
+                </MenuItem>
+              </SubMenu>
             </Menu>
           </Sider>
           <Layout>

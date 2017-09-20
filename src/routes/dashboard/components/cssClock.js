@@ -35,7 +35,7 @@ class Clock extends Component {
         }, 30);
         // clearInterval(timer2);
       }
-    }, 30);
+    }, 27);
   }
 
   reset = (num) => {
@@ -43,7 +43,7 @@ class Clock extends Component {
     this.transform(btm, '');
     this.transform(btmback, '');
     top.innerHTML = `<span>${num}</span>`;
-    topback.innerHTML = `<span>${num + 1}</span>`;
+    topback.innerHTML = `<span>${num}</span>`;
     btm.innerHTML = `<span>${num}</span>`;
     btmback.innerHTML = `<span>${num}</span>`;
     this.transform(top, '');

@@ -82,6 +82,13 @@ const Routers = function ({ history, app }) {
             }, 'js30-handwritingBoard');
           },
         }, {
+          path: '/css/animation',
+          getComponent(nextState, cb) {
+            require.ensure([], (require) => {
+              cb(null, require('./routes/css/animation/'));
+            }, 'css-animation');
+          },
+        }, {
           path: '/setting',
           getComponent(nextState, cb) {
             require.ensure([], (require) => {
